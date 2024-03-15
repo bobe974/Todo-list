@@ -4,11 +4,11 @@ import { applicationContext } from '../../context/ApplicaitonContextProvider'
 
 function TodoList() {
   //récupere le contexte
-  const {state} = useContext(applicationContext);
+  const {state, toggleFavoris} = useContext(applicationContext);
 
   return (
     <section>
-        {state.map(item => <TodoItem item = {item}  key={item.id}/>)}
+        {state.map(item => <TodoItem item = {item}  key={item.id} toggleFavoris = {toggleFavoris}/>)}
     </section>    
   )
 }

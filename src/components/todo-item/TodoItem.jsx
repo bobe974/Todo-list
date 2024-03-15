@@ -1,13 +1,13 @@
 import React from 'react'
 
-function TodoItem({item}) {
+function TodoItem({item, toggleFavoris}) {
   
 
   return (
     <div className='bg-gray-100 rounded-sm flex items-center justify-between text-black p-3 my-2'>
       <h2>{item.title}</h2>
-      {item.favorite ? ( <button onClick={() => console.log("Bouton favori cliqué")}>&#9733;</button>) 
-      : (<button onClick={() => console.log("CC")}>&#9734;</button>)}
+      {item.favoris ? ( <button onClick={() => toggleFavoris({id: item.id})}>&#9733;</button>) 
+      : (<button onClick={() => toggleFavoris({id: item.id})}>&#9734;</button>)}
 
       </div>
 

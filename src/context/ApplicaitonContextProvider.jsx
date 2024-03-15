@@ -27,6 +27,7 @@ function ApplicaitonContextProvider({children}) {
       const autresItems = state.filter(element => element.id !== id);
       //fusion des 2 element & changer la pp favoris
       setState([...autresItems, {...favorisItem, favoris: !favorisItem.favoris}]);
+      console.log("favoris etat:" + favorisItem.favoris)
 
     }
   return (
