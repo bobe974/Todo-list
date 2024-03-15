@@ -20,9 +20,18 @@ function ApplicaitonContextProvider({children}) {
         setState(newState)
     }
     
+    const toggleFavoris = ({id}) => {
+      //recupere l'element en favoris
+      const favorisItem = state.filter(element => element.id === id)[0];
+      //recupere les autres elements
+      const autresItems = state.filter(element => element.id !== id);
+      //fusion des 2 element & changer la pp favoris
+      setState([...autresItems, {...favorisItem, favoris: !favorisItem.favoris}]);
+
+    }
   return (
   
-    <applicationContext.Provider value={{state, updateState}}>
+    <applicationContext.Provider value={{state, updateState, toggleFavoris}}>
           <section>{children}</section>
     </applicationContext.Provider>
   )
