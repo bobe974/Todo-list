@@ -7,7 +7,7 @@ function AppBody() {
   
   return (
     <section className='bg-orange-600 h-screen'>
-      <div className='container grid md:grid-cols-2 gap-6'>
+      <div className='container grid md:grid-cols-2 gap-6 flex items-center flex h-full'>
         <TodoEdit/>    
         <TodoList/>
       </div>
