@@ -1,4 +1,5 @@
-import { TOGGLE_FAVORIS } from "./data";
+import { TOGGLE_FAVORIS, ADD_TASK } from "./data";
+
 
 /**
  * Composant React utilisant useReducer pour gérer l'état de manière complexe.
@@ -31,6 +32,13 @@ function ApplicationReducer(state, action) {
         { ...favorisItem, favoris: !favorisItem.favoris },
       ];
       console.log("favoris etat:" + favorisItem.favoris);
+    case ADD_TASK:
+      const {tache} = payload;
+      console.log("tache dans reducer" + tache.title);
+      //ajouter dans le Provider la nouvelle tache
+      return [...state, { id: state.length + 1, favoris: false, title: tache.title }];
+
+
 
     default:
       return state;

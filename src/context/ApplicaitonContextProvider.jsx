@@ -1,7 +1,7 @@
 import React from "react";
 import { useReducer } from "react";
 import ApplicationReducer from "./ApplicationReducer";
-import { TOGGLE_FAVORIS } from "./data";
+import { TOGGLE_FAVORIS, ADD_TASK} from "./data";
 
 export const applicationContext = React.createContext([]);
 
@@ -23,8 +23,9 @@ function ApplicaitonContextProvider({ children }) {
    **/
   const [state, dispatch] = useReducer(ApplicationReducer, TASK);
 
-  const updateState = (newState) => {
-
+  const updateState = (tache) => {
+      dispatch({type: ADD_TASK, payload:{tache}});
+      console.log("Dans Provider" + tache.title)
   };
 
   const toggleFavoris = ({ id }) => {
